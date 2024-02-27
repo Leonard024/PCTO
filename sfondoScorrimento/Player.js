@@ -8,6 +8,7 @@ class Player {
       this.isStopped = false;
       this.yVelocita = 0;
       this.gravità = 0.15;
+      this.staSaltando = false;
   }
 
   toggleImage() {
@@ -28,6 +29,10 @@ class Player {
         this.yVelocita += this.gravità;
 
         this.y = constrain(this.y, 0, height - 270);
+
+        if (this.y >= height - 270) {
+          this.staSaltando = false;
+        }
       }
   }
 
@@ -40,6 +45,9 @@ class Player {
   }
 
   jump(){
-    this.yVelocita = -7;
+    if (!this.staSaltando) {
+      this.yVelocita = -7;
+      this.staSaltando = true;
+    }
   }
 }
