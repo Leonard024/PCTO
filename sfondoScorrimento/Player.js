@@ -6,6 +6,8 @@ class Player {
       this.currentImage = omino1;
       this.alternateImage = omino3;
       this.isStopped = false;
+      this.yVelocita = 0;
+      this.gravità = 0.15;
   }
 
   toggleImage() {
@@ -20,13 +22,12 @@ class Player {
 
   update() {
       if (!this.isStopped) {
-          if (keyIsDown(UP_ARROW)) {
-              this.y -= this.speed;
-          }
-          if (keyIsDown(DOWN_ARROW)) {
-              this.y += this.speed;
-          }
-          this.y = constrain(this.y, 0, height - 150);
+        this.y = constrain(this.y, 0, height - 150);
+
+        this.y += this.yVelocita;
+        this.yVelocita += this.gravità;
+
+        this.y = constrain(this.y, 0, height - 270);
       }
   }
 
@@ -36,5 +37,9 @@ class Player {
 
   restart() {
       this.isStopped = false;
+  }
+
+  jump(){
+    this.yVelocita = -7;
   }
 }

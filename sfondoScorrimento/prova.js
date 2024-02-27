@@ -47,6 +47,20 @@ function draw() {
     }
     pers.show();
 
+
+
+
+
+
+    if (keyIsDown(32)){
+      pers.jump();
+    }
+
+
+
+
+
+
     // Controllo intervallo per cambiare immagine del personaggio
     if (!isPaused && millis() - lastImageChange > imageInterval) {
         pers.toggleImage();
@@ -96,14 +110,3 @@ function keyPressed() {
         isPaused = true;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
