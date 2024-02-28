@@ -11,7 +11,7 @@ class Obstacle {
   }
 
   show() {
-      image(this.image, this.x, this.y, 250, 310);
+      image(this.image, this.x, this.y, 320, 370);
   }
 
   isOffScreen() {
