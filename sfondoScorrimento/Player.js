@@ -18,7 +18,7 @@ class Player {
   }
 
   show() {
-      image(this.currentImage, this.x, this.y, 110, 200);
+      image(this.currentImage, this.x, this.y, 150, 220);
   }
 
   update() {

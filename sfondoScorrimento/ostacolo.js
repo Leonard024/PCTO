@@ -3,7 +3,6 @@ class Obstacle {
       this.x = width;
       this.y = 400;
       this.speed = scrollSpeed; // La velocità degli ostacoli segue la velocità di scrolling
-      this.image = random([ostacolo1, ostacolo2, ostacolo3]); // Seleziona casualmente uno tra ostacolo1, ostacolo2 o ostacolo3
   }
 
   move() {
@@ -11,7 +10,7 @@ class Obstacle {
   }
 
   show() {
-      image(this.image, this.x, this.y, 100, 120);
+      image(ostacolo, this.x, this.y, 150, 200);
   }
 
   isOffScreen() {

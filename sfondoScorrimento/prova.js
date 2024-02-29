@@ -8,9 +8,9 @@ let bgX1 = 0;
 let bgX2;
 let lastImageChange = 0;
 let imageInterval = 250;
-let ostacolo1;
-let ostacolo2;
-let ostacolo3;
+let ostacolo;
+
+// let musica;
 
 let obstacles = [];
 let collisionTime = 0;
@@ -20,15 +20,17 @@ function preload() {
     bgImg = loadImage('./img/sfondo.png');
     omino1 = loadImage('./img/omino1.png');
     omino3 = loadImage('./img/omino3.png');
-    ostacolo1 = loadImage('./img/ostacolo1.png');
-    ostacolo2 = loadImage('./img/ostacolo2.png');
-    ostacolo3 = loadImage('./img/ostacolo3.png');
+    ostacolo = loadImage('./img/ostacolo.png');
+
+    // musica = loadSound('./musica.mp3');
 }
 
 function setup() {
     createCanvas(windowWidth - 20, windowHeight - 20);
     pers = new Player();
     bgX2 = width;
+
+    // musica.play(); // Start playing the music
 
     // Creazione degli ostacoli
     for (let i = 0; i < 1; i++) {
@@ -47,19 +49,9 @@ function draw() {
     }
     pers.show();
 
-
-
-
-
-
     if (keyIsDown(32)){
       pers.jump();
     }
-
-
-
-
-
 
     // Controllo intervallo per cambiare immagine del personaggio
     if (!isPaused && millis() - lastImageChange > imageInterval) {
@@ -102,11 +94,5 @@ function scrolling() {
     }
     if (bgX2 <= -width) {
         bgX2 = width;
-    }
-}
-
-function keyPressed() {
-    if (keyCode === 32) { // 32 is the ASCII code for the spacebar
-        isPaused = true;
     }
 }
